@@ -9,10 +9,10 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
-app.config['MQTT_BROKER_URL'] = '106.14.145.57'
+app.config['MQTT_BROKER_URL'] = 'XXX.XXX.XXX.XXX'#服务器ip地址
 app.config['MQTT_BROKER_PORT'] = 1883
-app.config['MQTT_USERNAME'] = 'cwl'  # 当你需要验证用户名和密码时，请设置该项
-app.config['MQTT_PASSWORD'] = '19260817'  # 当你需要验证用户名和密码时，请设置该项
+app.config['MQTT_USERNAME'] = ''  # 当你需要验证用户名和密码时，请设置该项
+app.config['MQTT_PASSWORD'] = ''  # 当你需要验证用户名和密码时，请设置该项
 app.config['MQTT_KEEPALIVE'] = 5  # 设置心跳时间，单位为秒
 app.config['MQTT_TLS_ENABLED'] = False  # 如果你的服务器支持 TLS，请设置为 True
 topic = '/flask/mqtt'
