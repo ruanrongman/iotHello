@@ -1,0 +1,66 @@
+<head>
+    <meta charset="utf-8">
+    <title>TEMP</title>
+</head>
+<script src="http://cdn.staticfile.org/jquery/2.0.0/jquery.min.js"></script>
+<style>
+    .title {
+        text-align: center;
+    }
+    .lamp{
+        margin-top: 100px;
+        text-align: center;
+    }
+</style>
+<body>
+        <div class="title">
+            <h1>智能家居中控面板</h1>
+        </div>
+        <!input type="button" value="打开灯泡" onclick="hello()"/-->
+        <div class="lamp">
+            <button onclick="hello()">开灯</button>
+
+            <img id="myImage" border="0" src="static/eg_bulboff.gif" style="text-align:center;">
+
+            <button onclick="closeLamp()">关灯</button>
+        </div>
+
+
+</body>
+
+<script type="text/javascript">
+    function hello() {
+        document.getElementById('myImage').src='static/eg_bulbon.gif'
+        $.ajax(
+            {
+                type: "POST",
+                url: "/open",
+                dataType: "html",
+                async: true,
+                success: function (msg) {
+                    console.log(msg);
+                },
+                error: function (xhr, status, error) {
+                    console.log(error);
+                }
+            });
+    }
+    function closeLamp() {
+        document.getElementById('myImage').src='static/eg_bulboff.gif'
+        $.ajax(
+            {
+                type: "POST",
+                url: "/close",
+                dataType: "html",
+                async: true,
+                success: function (msg) {
+                    console.log(msg);
+                },
+                error: function (xhr, status, error) {
+                    console.log(error);
+                }
+            });
+    }
+
+</script>
+</html>
